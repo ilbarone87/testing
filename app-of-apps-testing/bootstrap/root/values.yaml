@@ -1,6 +1,6 @@
 gitops:
   repo: https://github.com/ilbarone87/testing
-  revision: master
+  revision: main
 
 apps:
   - name: zitadel
