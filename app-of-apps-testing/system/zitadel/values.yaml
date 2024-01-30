@@ -1,0 +1,37 @@
+zitadel:
+  replicaCount: 2
+  masterkeySecretName: zitadel-masterkey
+  configmapConfig:
+    Database:
+      Postgres:
+        Host: postgres-cluster-zitadel-rw.svc.cluster.local
+        Port: 5432
+        Database: zitadel
+        MaxOpenConns: 20
+        MaxIdleConns: 10
+        MaxConnLifetime: 30m
+        MaxConnIdleTime: 5m
+        User:
+          Username: zitadel
+          SSL:
+            Mode: verify-full
+        Admin:
+          Username: postgres
+          SSL:
+            Mode: verify-full
+  dbSslUserCrtSecret: zitadel-cluster-user-cert
+  service:
+    type: LoadBalancer
+    # If service type is "ClusterIP", this can optionally be set to a fixed IP address.
+    clusterIP: ""
+    port: 8080
+    protocol: http2
+    annotations: {}
+  metrics:
+    enabled: true
+    serviceMonitor:
+    # If true, the chart creates a ServiceMonitor that is compatible with Prometheus Operator
+    # https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#monitoring.coreos.com/v1.ServiceMonitor.
+    # The Prometheus community Helm chart installs this operator
+    # https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack#kube-prometheus-stack
+      enabled: true
