@@ -1,1 +1,11 @@
+gitops:
+  repo: https://github.com/ilbarone87/testing
+  revision: master
+
+  - name: zitadel
+    namespace: zitadel
+    path: app-of-apps/system/zitadel
+    syncWave: 1
+    serversideapply: ServerSideApply=false
+    
 
