@@ -5,7 +5,7 @@ gitops:
 apps:
   - name: zitadel
     namespace: zitadel
-    path: app-of-apps/system/zitadel
+    path: app-of-apps-testing/system/zitadel
     syncWave: 1
     serversideapply: ServerSideApply=false
     
