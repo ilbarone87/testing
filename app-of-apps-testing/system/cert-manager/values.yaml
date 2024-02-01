@@ -1,0 +1,13 @@
+# Custom CA issuer configuration
+# Enable private PKI using a custom CA
+# It creates a ClusterIssuer resource `ca-issuer`
+ca:
+  enabled: true
+
+########################
+# cert-manager  subchart#
+########################
+
+# CDRs installed as part of CDR application
+cert-manager:
+  installCRDs: true
