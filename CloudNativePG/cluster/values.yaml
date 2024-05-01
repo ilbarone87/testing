@@ -5,7 +5,7 @@ cluster:
     primaryUpdateStrategy: unsupervised
     initdb:
       database: test
-      owwner: test
+      owner: test
       secret: 
         name: postgres-user
       storage:
