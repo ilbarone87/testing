@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cnpg-stack
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/ilbarone87/testing
+        revision: HEAD
+        directories:
+          - path: CloudNativePG/*
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: default
+      source:
+        plugin:
+          name: kustomize-build-with-helm
+        repoURL: https://github.com/ilbarone87/testing
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        name: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
