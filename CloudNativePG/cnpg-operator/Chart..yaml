@@ -1,0 +1,7 @@
+apiVersion: v2
+name: monitoring
+version: 0.0.0
+dependencies:
+  - name: cnpg-operator
+    version: 0.21.2
+    repository: https://cloudnative-pg.github.io/charts
