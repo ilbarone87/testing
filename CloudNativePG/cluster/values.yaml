@@ -1,19 +1,20 @@
-mode: standalone
-cluster:
-  instances: 2
-  primaryUpdateStrategy: unsupervised
-  initdb:
-    database: test
-    owwner: test
-    secret: postgres-user
-    storage:
-      size: 5Gi
-    resources:
-      requests: 
-        cpu: 15m
-        memory: 250M
-      limits:
-        cpu: 15m
-        memory: 300M
-backups:
-  enabled: false
+cnpg-cluster-test:
+  mode: standalone
+  cluster:
+    instances: 2
+    primaryUpdateStrategy: unsupervised
+    initdb:
+      database: test
+      owwner: test
+      secret: postgres-user
+      storage:
+        size: 5Gi
+      resources:
+        requests: 
+          cpu: 15m
+          memory: 250M
+        limits:
+          cpu: 15m
+          memory: 300M
+  backups:
+    enabled: false
