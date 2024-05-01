@@ -18,8 +18,6 @@ spec:
     spec:
       project: default
       source:
-        plugin:
-          name: kustomize-build-with-helm
         repoURL: https://github.com/ilbarone87/testing
         targetRevision: HEAD
         path: '{{ path }}'
