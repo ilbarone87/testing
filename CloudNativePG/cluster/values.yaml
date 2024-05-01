@@ -1,4 +1,4 @@
-cnpg-cluster-test:
+cluster:
   mode: standalone
   cluster:
     instances: 2
