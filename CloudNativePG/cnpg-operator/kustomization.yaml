@@ -10,4 +10,3 @@ helmCharts:
     version: 0.21.2
     releaseName: cnpg-operator
     namespace: cnpg-system
-    valuesFile: values.yaml
