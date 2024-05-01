@@ -6,7 +6,8 @@ cluster:
     initdb:
       database: test
       owwner: test
-      secret: postgres-user
+      secret: 
+        name: postgres-user
       storage:
         size: 5Gi
       resources:
