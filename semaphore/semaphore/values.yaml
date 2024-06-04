@@ -1,32 +1,32 @@
----
-persistence:
-  # -- Enable persistence for workdir
-  enabled: true
+ansible-semaphore:
+  persistence:
+    # -- Enable persistence for workdir
+    enabled: true
 
-  # -- Size for boltdb volume
-  size: 5G
+    # -- Size for boltdb volume
+    size: 5G
 
-database:
-  # -- Type of database backend
-  type: postgres
+  database:
+    # -- Type of database backend
+    type: postgres
 
-  # -- Read username from secret
-  usernameFromSecret: true
+    # -- Read username from secret
+    usernameFromSecret: true
 
-  # -- Key used within secret for username
-  usernameKey: username
+    # -- Key used within secret for username
+    usernameKey: username
 
-  # -- Key used within secret for password
-  passwordKey: password
+    # -- Key used within secret for password
+    passwordKey: password
 
-  # -- Existing secret to use for credentials
-  existingSecret: postgres-user
+    # -- Existing secret to use for credentials
+    existingSecret: postgres-user
 
-  # -- Host for database connection
-  host: cluster-rw.cnpg-system.svc.cluster.local
+    # -- Host for database connection
+    host: cluster-rw.cnpg-system.svc.cluster.local
 
-  # -- Port for database connection
-  port: 5432
+    # -- Port for database connection
+    port: 5432
 
-  # -- Name of the used database
-  name: semaphore
+    # -- Name of the used database
+    name: semaphore
