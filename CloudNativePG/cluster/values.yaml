@@ -1,11 +1,11 @@
 cluster:
   mode: standalone
   cluster:
-    instances: 2
+    instances: 1
     primaryUpdateStrategy: unsupervised
     initdb:
-      database: test
-      owner: test
+      database: semaphore
+      owner: semaphore
       secret: 
         name: postgres-user
       storage:
