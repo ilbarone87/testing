@@ -8,14 +8,14 @@ cluster:
       owner: semaphore
       secret: 
         name: postgres-user
-      storage:
-        size: 5Gi
-      resources:
-        requests: 
-          cpu: 15m
-          memory: 250M
-        limits:
-          cpu: 15m
-          memory: 300M
+    storage:
+      size: 5Gi
+    resources:
+      requests: 
+        cpu: 15m
+        memory: 250M
+      limits:
+        cpu: 15m
+        memory: 300M
   backups:
     enabled: false
