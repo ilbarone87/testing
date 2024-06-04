@@ -4,3 +4,4 @@ namespace: argocd
 
 resources:
   - cloudnativePG.yaml
+  - semaphore.yaml
