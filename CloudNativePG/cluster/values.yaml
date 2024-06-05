@@ -8,7 +8,8 @@ cluster:
     initdb:
       database: semaphore
       owner: semaphore
-      secret: postgres-user
+      secret: 
+        name: postgres-user
     storage:
       size: 5Gi
       storageClass: standard
