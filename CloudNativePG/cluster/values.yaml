@@ -3,13 +3,17 @@ cluster:
   cluster:
     instances: 1
     primaryUpdateStrategy: unsupervised
+    priorityClassName: ""
+    managed: ""
     initdb:
       database: semaphore
       owner: semaphore
       secret: 
         name: postgres-user
+      postInitApplicationSQL: ""
     storage:
       size: 5Gi
+      storageClass: standard
     resources:
       requests: 
         cpu: 15m
