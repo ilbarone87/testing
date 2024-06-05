@@ -14,11 +14,11 @@ cluster:
       storageClass: standard
     resources:
       requests: 
-        cpu: 15m
-        memory: 250M
+        cpu: 50m
+        memory: 500Mi
       limits:
-        cpu: 15m
-        memory: 300M
+        cpu: 50m
+        memory: 1Gi
     priorityClassName: ""
   backups:
     enabled: false
