@@ -9,7 +9,6 @@ cluster:
       database: semaphore
       owner: semaphore
       secret: postgres-user
-      postInitSQL: ""
     storage:
       size: 5Gi
       storageClass: standard
