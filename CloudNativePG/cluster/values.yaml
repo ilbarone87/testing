@@ -20,5 +20,3 @@ cluster:
         cpu: 50m
         memory: 1Gi
     priorityClassName: ""
-  backups:
-    enabled: false
