@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: semaphore
+  name: utility
   namespace: argocd
 spec:
   generators:
@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/ilbarone87/testing
         revision: HEAD
         directories:
-          - path: semaphore/*
+          - path: utility/*
   template:
     metadata:
       name: '{{ path.basename }}'
@@ -23,7 +23,7 @@ spec:
         path: '{{ path }}'
       destination:
         name: in-cluster
-        namespace: semaphore
+        namespace: '{{ path.basename }}'
       syncPolicy:
         automated:
           selfHeal: true
