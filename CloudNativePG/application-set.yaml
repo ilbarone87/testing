@@ -13,8 +13,8 @@ spec:
   template:
     metadata:
       name: '{{ path.basename }}'
-      finalizers:
-        - resources-finalizer.argocd.argoproj.io
+      #finalizers:
+      #  - resources-finalizer.argocd.argoproj.io
     spec:
       project: default
       source:
@@ -25,9 +25,9 @@ spec:
         name: in-cluster
         namespace: cnpg-system
       syncPolicy:
-        automated:
-          selfHeal: true
-          prune: true
+        #automated:
+        #  selfHeal: true
+        #  prune: true
         syncOptions:
           - CreateNamespace=true
           - ApplyOutOfSyncOnly=true
