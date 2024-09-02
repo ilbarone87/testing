@@ -1,6 +1,6 @@
 <?php
 $cfg['Servers'] = [
     1 => [
-        'host' => 'wordpress.wordpress.svc.cluster.local',
+        'host' => 'wordpress-mariadb.wordpress.svc.cluster.local',
     ],
 ];
