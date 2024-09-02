@@ -3,5 +3,5 @@ name: semaphore
 version: 0.0.0
 dependencies:
   - name: ansible-semaphore
-    version: 9.4.1
+    version: 10.0.7
     repository: https://cloudhippie.github.io/charts
