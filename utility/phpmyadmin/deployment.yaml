@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: phpmyadmin
+      app.kubernetes.io/name: phpmyadmin
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: phpmyadmin
+        app.kubernetes.io/name: phpmyadmin
+      # annotations:
+      #   k8s.mountainwarehouse.com/inject-certs: enabled
+      annotations: {}
+    spec:
+      volumes:
+        - name: data
+          configMap:
+            name: phpmyadmin
+      containers:
+        - name: phpmyadmin
+          # image: mwregistryprd.azurecr.io/phpmyadmin:5.2.1-13
+          image: phpmyadmin:5.2.1
+          imagePullPolicy: Always
+          env:
+            # - name: HTTP_PORT
+            #   value: "8080"
+            # - name: HTTPS_PORT
+            #   value: "8443"
+            - name: UPLOAD_LIMIT
+              value: "256M"
+          ports:
+            - name: web
+              containerPort: 80
+              protocol: TCP
+            # - name: websecure
+            #   containerPort: 443
+            #   protocol: TCP
+          # livenessProbe:
+          #   httpGet:
+          #     port: web
+          #     path: /
+          # readinessProbe:
+          #   httpGet:
+          #     port: web
+          #     path: /
+          resources:
+            limits:
+              cpu: 100m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          volumeMounts:
+            - name: data
+              mountPath: /etc/phpmyadmin/config.user.inc.php
+              subPath: config.user.inc.php
+      restartPolicy: Always

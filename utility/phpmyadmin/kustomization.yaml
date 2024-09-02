@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml
+commonLabels:
+  app.kubernetes.io/instance: phpmyadmin
+  app.kubernetes.io/name: phpmyadmin
+  app.kubernetes.io/component: phpmyadmin
+configMapGenerator:
+  - name: phpmyadmin
+    files:
+      - config.user.inc.php
