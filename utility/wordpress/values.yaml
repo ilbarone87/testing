@@ -4,7 +4,7 @@ wordpress:
     global:
       storageClass: standard
     image:
-      tag: 6.4.3-debian-11-r0
+      tag: 6.4.3-debian-12-r28
     updateStrategy:
       type: Recreate
     persistence:
