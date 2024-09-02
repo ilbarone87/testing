@@ -14,7 +14,6 @@ wordpress:
         podLabels:
           team: platform
           admission.datadoghq.com/enabled: "true"
-          tags.datadoghq.com/service: "ems-blog-mariadb"
           tags.datadoghq.com/env: "prd"
         podAnnotations:
           ad.datadoghq.com/mariadb.logs: '[{"source":"mariadb"}]'
@@ -24,7 +23,6 @@ wordpress:
     podLabels:
       team: platform
       admission.datadoghq.com/enabled: "true"
-      tags.datadoghq.com/service: "ems-blog-wordpress"
       tags.datadoghq.com/env: "prd"
     podAnnotations:
       ad.datadoghq.com/wordpress.logs: '[{"source":"apache"}]'
