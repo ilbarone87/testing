@@ -1,0 +1,74 @@
+ # Enable for when we are ready to import
+    wordpressSkipInstall: false
+    global:
+      storageClass: standard
+    image:
+      tag: 6.4.1-debian-11-r0
+    updateStrategy:
+      type: Recreate
+    persistence:
+      size: 5Gi
+    mariadb:
+      primary:
+        podLabels:
+          team: platform
+          admission.datadoghq.com/enabled: "true"
+          tags.datadoghq.com/service: "ems-blog-mariadb"
+          tags.datadoghq.com/env: "prd"
+        podAnnotations:
+          ad.datadoghq.com/mariadb.logs: '[{"source":"mariadb"}]'
+        persistence:
+          size: 5Gi
+    wordpressScheme: http
+    podLabels:
+      team: platform
+      admission.datadoghq.com/enabled: "true"
+      tags.datadoghq.com/service: "ems-blog-wordpress"
+      tags.datadoghq.com/env: "prd"
+    podAnnotations:
+      ad.datadoghq.com/wordpress.logs: '[{"source":"apache"}]'
+    livenessProbe:
+      httpGet:
+        path: /wp-admin/install.php
+    readinessProbe:
+      httpGet:
+        path: /wp-login.php
+    ingress:
+      enabled: false
+    #networkPolicy:
+    #  egressRules:
+    #    customRules:
+    #      - to: # Allow kubernetes DNS
+    #          - namespaceSelector:
+    #              matchLabels:
+    #                kubernetes.io/metadata.name: kube-system
+    #          - podSelector:
+    #              matchLabels:
+    #                k8s-app: kube-dns
+    #        ports:
+    #          - protocol: UDP
+    #            port: 53
+    #      - to: # Allow all outbound excluding all internal IPs and pods (i.e. allow ONLY internet outbound)
+    #          - ipBlock:
+    #              cidr: 0.0.0.0/0
+    #              except:
+    #                - 10.0.0.0/8
+    #                - 172.16.0.0/12
+    #                - 192.168.0.0/16
+    #          - podSelector:
+    #              matchLabels:
+    #                app.kubernetes.io/instance: ems-blog-wordpress
+    #extraVolumes:
+    #  - name: internal-tls
+    #    secret:
+    #      secretName: internal-tls
+    ## use custom path since the image expects it to be called server.crt and server.key
+    #extraVolumeMounts:
+    #  - name: internal-tls
+    #    mountPath: /certs/server.crt
+    #    readOnly: true
+    #    subPath: tls.crt
+    #  - name: internal-tls
+    #    mountPath: /certs/server.key
+    #    readOnly: true
+    #    subPath: tls.key
