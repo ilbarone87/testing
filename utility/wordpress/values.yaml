@@ -29,7 +29,7 @@ wordpress:
     podAnnotations:
       ad.datadoghq.com/wordpress.logs: '[{"source":"apache"}]'
     livenessProbe:
-      httpGet:
+      tcpSocket:
         path: /wp-admin/install.php
     readinessProbe:
       httpGet:
