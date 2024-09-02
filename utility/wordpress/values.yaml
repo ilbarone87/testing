@@ -1,3 +1,4 @@
+wordpress:
  # Enable for when we are ready to import
     wordpressSkipInstall: false
     global:
