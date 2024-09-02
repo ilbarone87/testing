@@ -35,6 +35,8 @@
         path: /wp-login.php
     ingress:
       enabled: false
+    service:
+      type: ClusterIP
     #networkPolicy:
     #  egressRules:
     #    customRules:
