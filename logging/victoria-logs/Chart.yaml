@@ -3,7 +3,7 @@ apiVersion: v2
 name: victoria-logs-single
 version: 0.0.0
 dependencies:
-  - home: https://victoriametrics.github.io/helm-charts/
+  - repository: https://victoriametrics.github.io/helm-charts/
     type: application
     version: 0.8.13
     includeCRDs: true
