@@ -1,0 +1,22 @@
+dashboards:
+  enabled: true
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+server:
+  persistentVolume:
+    enabled: true
+    size: 5Gi
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+  retentionPeriod: 7d
+vector:
+  enabled: true
+  logLevel: warn
+  replicas: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi

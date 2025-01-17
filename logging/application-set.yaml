@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: logging-stack
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/ilbarone87/testing
+        revision: HEAD
+        directories:
+          - path: logging/*
+  template:
+    metadata:
+      name: '{{ path.basename }}'
+      #finalizers:
+      #  - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ilbarone87/testing
+        targetRevision: HEAD
+        path: '{{ path }}'
+      destination:
+        name: in-cluster
+        namespace: logging
+      syncPolicy:
+        #automated:
+        #  selfHeal: true
+        #  prune: true
+        syncOptions:
+          - CreateNamespace=true
+          - ApplyOutOfSyncOnly=true
+          - ServerSideApply=false
