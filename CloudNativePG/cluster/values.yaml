@@ -3,7 +3,14 @@ cluster:
   cluster:
     instances: 1
     primaryUpdateStrategy: unsupervised
-    managed: ""
+    roles:
+      - name: test
+        ensure: present
+        comment: testdb
+        login: true
+        superuser: false
+        passwordSecret:
+          name: cluster-additional-db
     initdb:
       database: semaphore
       owner: semaphore
