@@ -9,7 +9,7 @@ cluster:
         comment: testdb
         login: true
         createrole: true
-        connectionLinit: 4
+        connectionLimit: 4
         inherit: true
         superuser: false
         passwordSecret:
