@@ -8,6 +8,7 @@ cluster:
         ensure: present
         comment: testdb
         login: true
+        createrole: true
         superuser: false
         passwordSecret:
           name: cluster-additional-db
