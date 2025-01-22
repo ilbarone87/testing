@@ -4,7 +4,7 @@ cluster:
     instances: 1
     primaryUpdateStrategy: unsupervised
     roles:
-      - name: test
+      - name: dante
         ensure: present
         comment: testdb
         login: true
