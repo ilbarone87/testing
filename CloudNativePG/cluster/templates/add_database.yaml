@@ -4,6 +4,6 @@ metadata:
   name: additional-db
 spec:
   name: test
-  owner: test
+  owner: semaphore
   cluster:
     name: cluster
