@@ -3,15 +3,10 @@ gitops:
   revision: main
 
 apps:
-  - name: zitadel
-    namespace: zitadel
-    path: app-of-apps-testing/system/zitadel
-    syncWave: 1
-    serversideapply: ServerSideApply=false
   - name: argocd-operator
     namespace: argocd
     path: app-of-apps-testing/argocd-manifest
-    syncWave: 2
+    syncWave: 0
     serversideapply: ServerSideApply=false
     
 
