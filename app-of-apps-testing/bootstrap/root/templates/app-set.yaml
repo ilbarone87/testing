@@ -11,7 +11,7 @@ spec:
   destination:
     namespace: {{ $app.namespace }}
     server: https://kubernetes.default.svc
-  project: kubecluster
+  project: default
   source:
     path: {{ $app.path }}
     repoURL: {{ $.Values.gitops.repo }}
