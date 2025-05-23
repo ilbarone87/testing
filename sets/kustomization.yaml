@@ -6,4 +6,3 @@ resources:
   - cloudnativePG.yaml
   - semaphore.yaml
   - logging.yaml
-  - devops.yaml
